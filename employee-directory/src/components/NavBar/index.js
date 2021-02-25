@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function NavBar(props) {
+function NavBar() {
   return (
     <div className = "parent">
       <nav className="navbar">

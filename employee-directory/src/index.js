@@ -1,38 +1,17 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import "./App.css";
-import React, { useState, useEffect } from "react";
-import NavBar from "./components/NavBar";
-import Table from "./components/Table";
-import API from "./utils/API";
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-function App() {
-  // initialize use state as an array.
-  const [employeeState, setEmployeeState] = useState([]);
-
-  useEffect(() => {
-    API.getEmployees(employeeState).then(res => {
-      console.log(res.data.results)
-      setEmployeeState(res.data.results);
-    });
-  },[]);
-
-  // master array = []
-  // filtered array = [] .filter
-
-//picture ,firstname , last name, email , 
-
-// res.results[i].name.picture.dob
-
-// .map()
-
-  return (
-    <div>
-      <NavBar />
-      <div>
-        <Table users = {employeeState} />
-      </div>
-    </div>
-  );
-}
-
-export default App;
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
