@@ -1,24 +1,23 @@
 import React from "react";
 import "./style.css";
 
-function SearchBar() {
+function SearchBar(props) {
   return (
     <div className="d-flex justify-content-center px-5" >
-      <div class="search">
-        {" "}
+      <div className="search">
+        
         <input
-          type="text"
-          class="search-input"
+          value = {props.searchTerm}
+          onChange = {props.handleInputChange}
+          type="search"
+          className="search-input"
           placeholder="Search Employee Name"
-          name=""
-        />{" "}
-        <a href="#" class="search-icon">
-          {" "}
-          <i class="fa fa-search"></i>{" "}
-        </a>{" "}
+          
+        />
       </div>
     </div>
   );
 }
+
 
 export default SearchBar;

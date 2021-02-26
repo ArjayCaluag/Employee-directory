@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import Table from "./components/Table";
 import API from "./utils/API";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   // initialize use state as an array.
@@ -28,6 +29,7 @@ function App() {
     <div>
       <NavBar />
       <div>
+        <SearchBar/>
         <Table users = {employeeState} />
       </div>
     </div>

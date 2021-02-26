@@ -1,13 +1,12 @@
 import React from "react";
-import SearchBar from "../SearchBar";
 import "./style.css";
 
 function Table({ users }) {
-  console.log(users);
+  // console.log(users);
 
   return (
     <div>
-      <SearchBar/>
+      
       <table className="table">
         <thead>
           <tr>
@@ -18,7 +17,7 @@ function Table({ users }) {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users.map(user => (
             <tr>
               <td>
                 {" "}
