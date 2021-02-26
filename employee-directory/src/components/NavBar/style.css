@@ -1,6 +1,6 @@
 .navbar {
     min-height: 70px;
-   
+   background-color: lightblue;
     width: 100%;
     box-shadow: 0 14px 28px rgb(0 0 0 / 25%), 0 10px 10px rgb(0 0 0 / 22%);
     color:black;
@@ -19,5 +19,6 @@
     padding: 26px 0px;
     width: 33.3%;
     text-align: center;
+    font-family: fantasy;
 
 }
