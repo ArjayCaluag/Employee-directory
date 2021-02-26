@@ -11,18 +11,35 @@ function App() {
   // initialize use state as an array.
   const [employeeState, setEmployeeState] = useState([]);
 
+  // User input grabbed from search bar
   const [searchTerm, setSearchTerm] = useState("");
+
+  // filtered employees that match the searchTerm
   const [filteredEmployee, setFilteredEmployee] = useState([]);
 
+  // Grabs employees from randomuser api and sets into employee and filtered employee states
   useEffect(() => {
     API.getEmployees().then((res) => {
       console.log(res.data.results);
       setEmployeeState(res.data.results);
+      setFilteredEmployee(res.data.results);
     });
   }, []);
 
+  useEffect(() => {
+    if (searchTerm) {
+      searchEmployeeName();
+    }
+  }, [searchTerm]);
 
+  // Filters employees into new array if input contains letters of employees names
+  const searchEmployeeName = () => {
+    let filterArr = employeeState.filter((user) =>
+      user.name.first.toLowerCase().includes(searchTerm));
+      setFilteredEmployee(filterArr);
+  };
 
+  // Grabs input from user input and sets into SearchTerm
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
     console.log(event.target.value);
@@ -37,7 +54,7 @@ function App() {
       results={searchTerm} />
     
       <Table 
-      users={employeeState} />
+      users={filteredEmployee} />
     </div>
   );
 }
