@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.css";
 
-function Table({ users }) {
-  console.log(users);
+function Table(props) {
+ 
 
   return (
     <div>
@@ -10,14 +10,14 @@ function Table({ users }) {
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Picture</th>
-            <th scope="col">Name</th>
+            <th scope="col" >Picture</th>
+            <th scope="col" onClick={props.handleSort}  >Name</th>
             <th scope="col">email</th>
             <th scope="col">Phone #</th>
           </tr>
         </thead>
         <tbody>
-          {users.map(user => (
+          {props.users.map(user => (
             <tr>
               <td>
                 {" "}

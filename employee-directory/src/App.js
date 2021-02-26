@@ -17,6 +17,8 @@ function App() {
   // filtered employees that match the searchTerm
   const [filteredEmployee, setFilteredEmployee] = useState([]);
 
+  const [sortByName, setSortByName] = useState(false)
+
   // Grabs employees from randomuser api and sets into employee and filtered employee states
   useEffect(() => {
     API.getEmployees().then((res) => {
@@ -45,16 +47,32 @@ function App() {
     console.log(event.target.value);
   };
 
+  // Sort name by ascending or descending order
+  const sortBy = () => {
+  
+    if (!sortByName){
+      setEmployeeState(employeeState.sort((a,b) => (a.name.firt > b.name.first) ? 1 : -1));
+      setSortByName(true);
+    } else {
+      setEmployeeState(employeeState.sort((a,b) => (a.name.first > b.name.first) ? -1 : 1))
+      setSortByName(false)
+    }
+  }
+
   return (
     <div>
       <NavBar />
 
       <SearchBar
       handleInputChange={handleInputChange} 
-      results={searchTerm} />
+      results={searchTerm}
+       />
+      
     
       <Table 
-      users={filteredEmployee} />
+      users={filteredEmployee}
+      handleSort ={sortBy}
+      sortedName = {sortByName} />
     </div>
   );
 }
