@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 function Table({ users }) {
-  // console.log(users);
+  console.log(users);
 
   return (
     <div>
